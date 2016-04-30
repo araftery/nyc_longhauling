@@ -2,6 +2,7 @@
 .pyo
 .DS_Store
 data/
+cleaned_data/
 .pem
 .dump
 .pgdump
