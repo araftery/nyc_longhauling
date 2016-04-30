@@ -17,6 +17,7 @@ def clean_taxi_data(df):
     df['pickup_coords'] = df['pickup_lat_coord'].astype(str).str.cat(df['pickup_lng_coord'].astype(str), sep=', ')
     df['dropoff_coords'] = df['dropoff_lat_coord'].astype(str).str.cat(df['dropoff_lng_coord'].astype(str), sep=', ')
     df['route'] = df['pickup_coords'].str.cat(df['dropoff_coords'], sep=' -> ')
-    df['pickup_day_hour'] = df.tpep_pickup_datetime.dt.day.astype(str).str.cat(df.tpep_pickup_datetime.dt.hour.astype(str), sep=', ')
+    df['is_weekday'] = df['tpep_pickup_datetime'].apply(lambda x: 0 if x.weekday > 4 else 1)
+    df['pickup_day_hour'] = df.is_weekday.astype(str).str.cat(df.tpep_pickup_datetime.dt.hour.astype(str), sep=', ')
 
     return df

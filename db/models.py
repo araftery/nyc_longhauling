@@ -20,6 +20,7 @@ class Trip(models.Model):
     dropoff_lat_coord = models.IntegerField()
     dropoff_lng_coord = models.IntegerField()
     pickup_day_hour = models.CharField(max_length=100)
+    group_id = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return u'Trip from ({}, {}) to ({}, {}) on {}.'.format(
