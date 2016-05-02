@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from grid import *
+from utils.grid import *
 from utils.data_cleaning import clean_taxi_data
 from progressbar import ProgressBar
 import json
