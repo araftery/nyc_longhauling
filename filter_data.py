@@ -14,7 +14,6 @@ for month_num in range(1, 13):
     start_time = time.time()
     month_zfilled = unicode(month_num).zfill(2)
     df = pd.read_csv('data/yellow_tripdata_2015-{}.csv'.format(month_zfilled))
-    df = clean_taxi_data(df)
 
     # create route column
     for dt_col in ('tpep_pickup_datetime', 'tpep_dropoff_datetime'):
