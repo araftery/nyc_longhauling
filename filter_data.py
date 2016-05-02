@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+from grid import *
 from utils.data_cleaning import clean_taxi_data
 from progressbar import ProgressBar
 import json
@@ -29,7 +31,7 @@ for month_num in range(1, 13):
 
 
     filtered = df[df['route'].isin(to_keep)]
-    
+
     # exclude points with 0 lat or lng
     filtered = filtered[(filtered['pickup_latitude'] != 0) & (filtered['pickup_longitude'] != 0) & (filtered['dropoff_latitude'] != 0) & (filtered['dropoff_latitude'] != 0)]    
 
